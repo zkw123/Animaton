@@ -55,26 +55,9 @@ namespace NaughtyCharacter
 			
 			
 			_animator.SetFloat("VerticalSpeed", _character._verticalSpeed);
-			if (_character._movementInput.magnitude == 0 && _animator.GetFloat("ForwardSpeed") < 0.01)
-			{
-				_animator.SetFloat(CharacterAnimatorParamId.ForwardSpeed, forwardSpeed);
-			}
-			else
-            {
-				
-				_animator.SetFloat(CharacterAnimatorParamId.ForwardSpeed, forwardSpeed, 0.15f, Time.deltaTime);
-			}
-			if (_character._movementInput.magnitude == 0 && _animator.GetFloat("RightSpeed") < 0.01)
-			{
-				_animator.SetFloat(CharacterAnimatorParamId.RightSpeed, rightSpeed);
-			}
-			else
-			{
-				
-				_animator.SetFloat(CharacterAnimatorParamId.RightSpeed, rightSpeed, 0.15f, Time.deltaTime);
-			}
-			//_animator.SetFloat(CharacterAnimatorParamId.ForwardSpeed, forwardSpeed, 0.15f, Time.deltaTime);
-			//_animator.SetFloat(CharacterAnimatorParamId.RightSpeed, rightSpeed, 0.15f, Time.deltaTime);
+			
+			_animator.SetFloat(CharacterAnimatorParamId.ForwardSpeed, forwardSpeed, 0.15f, Time.deltaTime);
+			_animator.SetFloat(CharacterAnimatorParamId.RightSpeed, rightSpeed, 0.15f, Time.deltaTime);
 			_animator.SetInteger(CharacterAnimatorParamId.MovementState, (int)_character.MovementState);
             _animator.SetInteger(CharacterAnimatorParamId.UpperState, (int)_character.UpperState);
 		}

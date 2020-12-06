@@ -139,17 +139,24 @@ namespace NaughtyCharacter
 			UpdateVerticalSpeed();
 
 			Vector3 movement = _horizontalSpeed * GetMovementDirection() + _verticalSpeed * Vector3.up;
+			IsGrounded = _characterController.isGrounded;
 			//Debug.Log(movement);
-			/*
+			
 			if (!_characterAnimator.UseRootMotion)
 			{
 				_characterController.Move(movement * Time.deltaTime);
 			}
-			*/
-			_characterController.Move(movement * Time.deltaTime);
+			
+			if (_movementState==MovementState.Jump)
+            {
+				_characterController.Move(movement * Time.deltaTime);
+
+			}
+			
+			
 			OrientToTargetRotation(movement.SetY(0.0f));
 
-            IsGrounded = _characterController.isGrounded;
+            
             UpdateGroundState();
             if (_characterAnimator != null)
             {
